@@ -7,3 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+libs/
+src/main/java/com/example/xjc/visualalgorithm/model/
+src/main/java/com/example/xjc/visualalgorithm/presenter/
+src/main/java/com/example/xjc/visualalgorithm/view/

@@ -3,14 +3,31 @@ package com.example.lib;
 public class myClass {
     public static void main(String arg[]) {
         int[] array = {5, 2, 8, 9, 1, 3, 4};
-        sort(array, 0, array.length - 1);
+        bubbySort(array);
         for (int i : array) {
             System.out.print(i);
         }
     }
+    //冒泡排序
+    private static void bubbySort(int[] array){
+        int length = array.length;
+        int temp = 0;
+        boolean flag = true;
+        for (int i=0;i<length-1&flag;i++){
+            flag = false;
+            for (int j = 0; j<length-1-i; j++){
+                if (array[j]>array[j+1]){
+                    temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                    flag = true;
+                }
+            }
+        }
+    }
 
     //归并排序
-    public static void sort(int[] array, int left, int right) {
+    private static void sort(int[] array, int left, int right) {
         int mid = (left + right) / 2;
         if (left < right) {
             sort(array, left, mid);

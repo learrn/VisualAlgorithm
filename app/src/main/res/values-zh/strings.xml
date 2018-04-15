@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">算法可视化</string>
+    <string name="tab_sortitem_code">简介</string>
+    <string name="tab_sortitem_animation">动画</string>
+
+</resources>
