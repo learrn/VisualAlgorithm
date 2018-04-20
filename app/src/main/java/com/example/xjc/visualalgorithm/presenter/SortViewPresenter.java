@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.util.Log;
 
 import com.example.xjc.visualalgorithm.model.OrderModel;
 import com.example.xjc.visualalgorithm.model.RectModel;
@@ -20,6 +21,7 @@ public class SortViewPresenter implements ISortViewPresenter {
     public int mOffset = 10;
     private Context mContext;
     private ArrayList<RectModel> rectModels;
+    private ArrayList<RectModel> initRectModels;
     private Paint mTextPaint, mRectPaint;
     private SortView sortView;
     private float rectIndex;
@@ -31,8 +33,10 @@ public class SortViewPresenter implements ISortViewPresenter {
     private Boolean isChanging = false;
 
     public SortViewPresenter(Context context, ArrayList<RectModel> rectModels) {
+        Log.d("xjc_Sort", "initRectModels = " + rectModels);
         this.mContext = context;
         this.rectModels = rectModels;
+        this.initRectModels = (ArrayList<RectModel>) rectModels.clone();
         init();
     }
 
@@ -116,9 +120,15 @@ public class SortViewPresenter implements ISortViewPresenter {
             default:
                 break;
         }
-        rectModels.get(firstIndex).setColor(color);
-        if (firstIndex != secondIndex) {
-            rectModels.get(secondIndex).setColor(color);
+        if (firstIndex == -1 && secondIndex == -1) {
+            for (RectModel rectModel : rectModels) {
+                rectModel.setColor(color);
+            }
+        } else {
+            rectModels.get(firstIndex).setColor(color);
+            if (firstIndex != secondIndex) {
+                rectModels.get(secondIndex).setColor(color);
+            }
         }
         sortView.postInvalidateDelayed(500);
     }
@@ -136,5 +146,13 @@ public class SortViewPresenter implements ISortViewPresenter {
         tempOrder = new OrderModel(type, color, firstIndex, secondIndex);
         queue.offer(tempOrder);
         sortView.postInvalidate();
+    }
+
+    public void resetView() {
+        queue.clear();
+        rectModels = new ArrayList<>(initRectModels);
+        for (RectModel rectModel : rectModels) {
+            rectModel.reset();
+        }
     }
 }

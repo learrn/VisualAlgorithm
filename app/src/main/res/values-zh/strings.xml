@@ -2,5 +2,21 @@
     <string name="app_name">算法可视化</string>
     <string name="tab_sortitem_code">简介</string>
     <string name="tab_sortitem_animation">动画</string>
+    <string name="title_sort_bubble">冒泡排序</string>
+    <string name="title_sort_select">选择排序</string>
+    <string name="title_sort_insert">插入排序</string>
+    <string name="title_sort_shell">希尔排序</string>
+    <string name="title_sort_heap">堆排序</string>
+    <string name="title_sort_quick">快速排序</string>
+    <string name="title_sort_merge">归并排序</string>
+    <string name="title_sort_idea">基本思想：</string>
+    <string name="title_sort_code">代码实现：</string>
+    <string name="text_bubble_idea">比较相邻的元素。如果第一个比第二个大，就交换他们两个。\n对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。 针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</string>
+    <string name="text_select_idea">在要排序的一组数中，选出最小的一个数与第一个位置的数交换；然后在剩下的数当中再找最小的与第二个位置的数交换，如此循环到倒数第二个数和最后一个数比较为止。</string>
+    <string name="text_insert_idea">每步将一个待排序的记录，按其顺序码大小插入到前面已经排序的字序列的合适位置（从后向前找到合适位置后），直到全部插入排序完为止。</string>
+    <string name="text_shell_idea">先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录“基本有序”时，再对全体记录进行依次直接插入排序。</string>
+    <string name="text_heap_idea">初始时把要排序的数的序列看作是一棵顺序存储的二叉树，调整它们的存储序，使之成为一个 堆，这时堆的根节点的数最大。然后将根节点与堆的最后一个节点交换。然后对前面(n-1)个数重新调整使之成为堆。依此类推，直到只有两个节点的堆，并对 它们作交换，最后得到有n个节点的有序序列。从算法描述来看，堆排序需要两个过程，一是建立堆，二是堆顶与堆的最后一个元素交换位置。所以堆排序有两个函数组成。一是建堆的渗透函数，二是反复调用渗透函数实现排序的函数。</string>
+    <string name="text_quick_idea">通过一趟排序将待排序记录分割成独立的两部分，其中一部分记录的关键字均比另一部分关键字小，则分别对这两部分继续进行排序，直到整个序列有序。</string>
+    <string name="text_merge_idea">归并（Merge）排序法是将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。</string>
 
 </resources>

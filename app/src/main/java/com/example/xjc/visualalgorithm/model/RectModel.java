@@ -11,6 +11,8 @@ public class RectModel {
     public static final int COLOR_CHOSED = 2;
     public static final int COLOR_CURRENT = 3;
     public static final int COLOR_FINISH = 4;
+    public static final int COLOR_MIDDLE = 5;
+    public static final int COLOR_JUMP = 6;
 
     private float index;
     private int value;
@@ -78,8 +80,18 @@ public class RectModel {
                 return Color.rgb(220, 60, 20);
             case COLOR_FINISH:
                 return Color.rgb(255, 165, 0);
+            case COLOR_MIDDLE:
+                return Color.rgb(255, 255, 0);
+            case COLOR_JUMP:
+                return Color.rgb(153, 50, 204);
             default:
                 return Color.rgb(173, 216, 230);
         }
+    }
+
+    public void reset(){
+        this.index = initIndex;
+        this.targetIndex = initIndex;
+        this.color = COLOR_NORMAL;
     }
 }

@@ -2,4 +2,22 @@
     <string name="app_name">VisualAlgorithm</string>
     <string name="tab_sortitem_code">Introduction</string>
     <string name="tab_sortitem_animation">Animation</string>
+    <string name="title_sort_bubble">Bubble Sort</string>
+    <string name="title_sort_select">Select Sort</string>
+    <string name="title_sort_insert">Insert Sort</string>
+    <string name="title_sort_shell">Shell Sort</string>
+    <string name="title_sort_heap">Heap Sort</string>
+    <string name="title_sort_quick">Quick Sort</string>
+    <string name="title_sort_merge">Merge Sort</string>
+    <string name="title_sort_idea">Basic idea:</string>
+    <string name="title_sort_code">Sort Code:</string>
+    <string name="text_bubble_idea">Compare adjacent elements. If the first one is bigger than the second one, exchange them both.
+Do the same for each pair of adjacent elements, starting with the first pair and ending with the last pair. At this point, the last element should be the largest number. Repeat the above steps for all elements except the last one. Continue repeating the above steps for fewer and fewer elements at a time until there is no pair of numbers to compare.</string>
+    <string name="text_select_idea">In the set of numbers to be sorted, the smallest number is chosen to be exchanged with the number of the first position; then, among the remaining numbers, the smallest number is exchanged with the second position, and the cycle is repeated to the second to last. The number is compared with the last number.</string>
+    <string name="text_insert_idea">Each step will be a record to be sorted, according to the size of the order code into the previous position of the sequence of words have been sorted (after finding the right position after the forward position), until all insert sorting.</string>
+    <string name="text_shell_idea">First, the entire sequence of records to be sorted is divided into several sub-sequences for direct insertion sorting. When the records in the entire sequence are “basically ordered”, the entire record is sequentially sequenced by inserting.</string>
+    <string name="text_heap_idea">Initially, the sequence of numbers to be sorted is treated as a sequential storage binary tree, and their storage order is adjusted to become a heap. The number of root nodes of the heap is the largest. Then swap the root node with the last node in the heap. Then readjust the previous (n-1) number to make it a heap. And so on, until there are only two nodes in the heap, and they are exchanged, and finally get an ordered sequence of n nodes. From the description of the algorithm, the heap sorting requires two processes, one is to build a heap, and the other is the exchange position of the last element of the heap and the heap. So the heap sort consists of two functions. One is to build the heap\'s infiltration function, and the other is to repeatedly call the infiltration function to implement the sorting function.</string>
+    <string name="text_quick_idea">By sorting the records to be sorted into two independent parts by one sort, in which part of the recorded keywords are smaller than the other part of the keywords, the two parts are respectively sorted continuously until the entire sequence is ordered.</string>
+    <string name="text_merge_idea">The Merge sort method combines two (or more) ordered lists into a new ordered list, which divides the sequence to be sorted into several subsequences, each of which is ordered. Then the ordered subsequences are combined into a globally ordered sequence.</string>
+
 </resources>

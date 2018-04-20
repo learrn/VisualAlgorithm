@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.xjc.visualalgorithm.MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:text="@string/title_sort_idea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:id="@+id/tv_idea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"/>
+    <TextView
+        android:text="@string/title_sort_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+    <thereisnospon.codeview.CodeView
+        android:id="@+id/cv_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </thereisnospon.codeview.CodeView>
+
+</LinearLayout>

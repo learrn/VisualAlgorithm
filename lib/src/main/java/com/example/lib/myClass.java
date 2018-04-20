@@ -3,13 +3,13 @@ package com.example.lib;
 public class myClass {
     public static void main(String arg[]) {
         int[] array = {5, 2, 8, 9, 1, 3, 4};
-        bubbySort(array);
+        bubbleSort(array);
         for (int i : array) {
             System.out.print(i);
         }
     }
     //冒泡排序
-    private static void bubbySort(int[] array){
+    private static void bubbleSort(int[] array){
         int length = array.length;
         int temp = 0;
         boolean flag = true;
