@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class SortViewPresenter implements ISortViewPresenter {
-    public int mOffset = 10;
+    private int mOffset = 10;
     private Context mContext;
     private ArrayList<RectModel> rectModels;
     private ArrayList<RectModel> initRectModels;
@@ -122,7 +122,9 @@ public class SortViewPresenter implements ISortViewPresenter {
         }
         if (firstIndex == -1 && secondIndex == -1) {
             for (RectModel rectModel : rectModels) {
-                rectModel.setColor(color);
+                if (rectModel.getColor() != RectModel.COLOR_FINISH){
+                    rectModel.setColor(color);
+                }
             }
         } else {
             rectModels.get(firstIndex).setColor(color);

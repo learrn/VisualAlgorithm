@@ -17,7 +17,6 @@ import com.example.xjc.visualalgorithm.view.ui.SortView;
 import java.util.ArrayList;
 
 public class AnimationFragment extends Fragment {
-    private static final String EXTRA_CONTENT = "content";
     private int sortId;
     private SortViewPresenter sortViewPresenter;
     private int[] values;
@@ -25,7 +24,7 @@ public class AnimationFragment extends Fragment {
 
     public static AnimationFragment newInstance(int sortId) {
         Bundle arguments = new Bundle();
-        arguments.putInt(EXTRA_CONTENT, sortId);
+        arguments.putInt(SortCode.SORT_ID, sortId);
         AnimationFragment animationfragment = new AnimationFragment();
         animationfragment.setArguments(arguments);
         return animationfragment;
@@ -46,7 +45,7 @@ public class AnimationFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sortId = getArguments().getInt(EXTRA_CONTENT, 0);
+        sortId = getArguments().getInt(SortCode.SORT_ID, 0);
     }
 
     private void startAnimation(int sortId) {
@@ -250,6 +249,7 @@ public class AnimationFragment extends Fragment {
 
     private void quickSort(int[] numbers, int low, int high) {
         if (low >= high) {
+            sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_FINISH, low, low);
             return;
         }
         int middle = getMiddle(numbers, low, high); // 将numbers数组进行一分为二
@@ -259,24 +259,26 @@ public class AnimationFragment extends Fragment {
 
     private int getMiddle(int[] numbers, int low, int high) {
         int temp = numbers[low]; // 数组的第一个作为中轴
+        sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_NORMAL, -1, -1);
         sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_MIDDLE, low, low);
         while (low < high) {
             while (low < high && numbers[high] > temp) {
                 sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_JUMP, high, high);
                 high--;
-                sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_CURRENT, high, high);
+                sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_CHOSED, high, high);
             }
             numbers[low] = numbers[high];// 比中轴小的记录移到低端
             sortViewPresenter.addOrder(OrderModel.TYPE_EXCHANGE, RectModel.COLOR_CURRENT, low, high);
             while (low < high && numbers[low] < temp) {
                 sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_JUMP, low, low);
                 low++;
-                sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_CURRENT, low, low);
+                sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_CHOSED, low, low);
             }
             numbers[high] = numbers[low]; // 比中轴大的记录移到高端
             sortViewPresenter.addOrder(OrderModel.TYPE_EXCHANGE, RectModel.COLOR_CURRENT, low, high);
         }
         numbers[low] = temp; // 中轴记录到尾
+        sortViewPresenter.addOrder(OrderModel.TYPE_COLOR, RectModel.COLOR_FINISH, low, low);
         return low; // 返回中轴的位置
     }
 
